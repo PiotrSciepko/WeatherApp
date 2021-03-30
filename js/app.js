@@ -51,7 +51,6 @@ findCity.addEventListener("submit", (e) => {
                 newBox.remove();
             }
         })
-
 })
 
 document.querySelector("#add-city")
