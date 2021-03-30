@@ -34,8 +34,6 @@ findCity.addEventListener("submit", (e) => {
     const box = document.querySelector(".module__weather");
     let newBox = box.cloneNode(true);
     newBox.hidden = true;
-    newBox.querySelector(".btn--close").style.display = "inherit";
-    newBox.querySelector(".btn--close").addEventListener("click", () => newBox.remove());
 
     showWeatherBox(newBox, city)
         .then(() => {
@@ -43,6 +41,8 @@ findCity.addEventListener("submit", (e) => {
             box.before(newBox);
             newBox = document.querySelector(".module__weather");
             if (!cities.includes(newBox.querySelector(".city__name").innerHTML)) {
+                newBox.querySelector(".btn--close").style.display = "inherit";
+                newBox.querySelector(".btn--close").addEventListener("click", () => newBox.remove());
                 newBox.hidden = false;
                 document.querySelector(".module__form").hidden = true;
                 findCity.search.value = "";
