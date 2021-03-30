@@ -32,14 +32,13 @@ findCity.addEventListener("submit", (e) => {
     e.preventDefault();
     const city = findCity.search.value;
     const box = document.querySelector(".module__weather");
-    let newBox = box.cloneNode(true);
+    const newBox = box.cloneNode(true);
     newBox.hidden = true;
 
     showWeatherBox(newBox, city)
         .then(() => {
             const cities = [...document.querySelectorAll(".city__name")].map(el => el.innerHTML);
             box.before(newBox);
-            newBox = document.querySelector(".module__weather");
             if (!cities.includes(newBox.querySelector(".city__name").innerHTML)) {
                 newBox.querySelector(".btn--close").style.display = "inherit";
                 newBox.querySelector(".btn--close").addEventListener("click", () => newBox.remove());
