@@ -19,8 +19,8 @@ const showWeatherBox = (box, location) => {
                 wind.innerHTML = data.current.wind_kph + " km/h";
                 weatherIcon.src = data.current.condition.icon;
                 ulWeatherForecast.innerHTML = data.forecast.forecastday.map(e =>
-                    `<li><span class="day">${weekDay[new Date(e.date).getDay()]}</span><img src="${e.day.condition.icon}"/>`
-                    + `<span class="temperature"><span class="temperature__value">${e.day.avgtemp_c}</span>&deg;C</span></li>`)
+                    `<li><span class="day">${weekDay[new Date(e.date).getDay()]}</span><img src="${e.hour[18].condition.icon}"/>`
+                    + `<span class="temperature"><span class="temperature__value">${e.hour[18].temp_c}</span>&deg;C</span></li>`)
                     .join("");
             }
         })
@@ -44,13 +44,14 @@ findCity.addEventListener("submit", (e) => {
             newBox = document.querySelector(".module__weather");
             if (!cities.includes(newBox.querySelector(".city__name").innerHTML)) {
                 newBox.hidden = false;
+                document.querySelector(".module__form").hidden = true;
+                findCity.search.value = "";
+                findCity.search.placeholder = "np. Krasnystaw";
             } else {
                 newBox.remove();
             }
         })
-    document.querySelector(".module__form").hidden = true;
-    findCity.search.value = "";
-    findCity.search.placeholder = "np. Krasnystaw";
+
 })
 
 document.querySelector("#add-city")
