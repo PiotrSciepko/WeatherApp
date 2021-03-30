@@ -54,10 +54,10 @@ findCity.addEventListener("submit", (e) => {
 })
 
 document.querySelector("#add-city")
-    .addEventListener("click", el => document.querySelector(".module__form").hidden = false);
+    .addEventListener("click", () => document.querySelector(".module__form").hidden = false);
 
 document.querySelector(".module__form .btn--close")
-    .addEventListener("click", el => document.querySelector(".module__form").hidden = true);
+    .addEventListener("click", () => document.querySelector(".module__form").hidden = true);
 
 const initialBox = document.querySelector(".module__weather");
 initialBox.hidden = true;
